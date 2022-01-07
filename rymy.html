@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Fristajlowa pomoc w rymowaniu</title>
+  </head>
+ <!-- 
+<script src="/home/v/sjp.js"></script>
+-->
+
+<script src="sjp.js">
+
+<style>
+h1 {
+color:#8B0000;
+font-size: 20px;
+text-shadow: 2px 2px #707070;
+}
+body {background-color: #cfc;}
+</style>
+  <script>
+function rhyme(word)
+{
+var wynik =  new Array()
+         function siedem(element){
+          if (word.slice(-5).includes(element.slice(-5)))
+              {
+              wynik.push(element)
+              }
+          }
+
+         function  szesc(element){
+          if (word.slice(-4).includes(element.slice(-4)))
+              {
+              wynik.push(element)
+              }
+          }
+if (word.length >= 7)
+{ data.forEach(siedem) }
+else (word.length <= 6)
+{ data.forEach(szesc)}
+// console.log("Dostępne rymy do "+word+": "+wynik);
+return wynik;
+}
+// rhyme("rapera");
+  </script>
+<body>
+<div id="log0" style=color: #006400;padding: 10px;"><h1>Oto lista znalezionych dla Ciebie rymów:</h1><br><br></div>
+<div id="log" style="background-color: #006400;color: #ffffff;border-radius: 25px; padding: 10px; border: 5px solid #cfc;"></div>
+<script>
+window.SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
+if ('SpeechRecognition' in window) {
+  console.log('supported speech')
+} else {
+  console.error('speech not supported')
+}
+    const recognition = new window.SpeechRecognition();
+
+    recognition.continuous = true;
+    recognition.lang = "pl-PL";
+
+// recognition.onresult = (event) => {
+//      console.log('transscript: ', event.results[event.results.length -1][0].transcript);
+//    }
+    
+    recognition.onresult = (event) => {
+     var transkrypcja = event.results[event.results.length -1][0].transcript;
+     console.log(transkrypcja);
+  function rhyme(word)
+{
+var wynik =  new Array()
+         function siedem(element){
+          if (word.slice(-5).includes(element.slice(-5)))
+              {
+              wynik.push(element)
+              }
+          }
+
+         function  szesc(element){
+          if (word.slice(-4).includes(element.slice(-4)))
+              {
+              wynik.push(element)
+              }
+          }
+if (word.length >= 7)
+{ data.forEach(siedem) }
+else (word.length <= 6)
+{ data.forEach(szesc)}
+console.log("Dostępne rymy do "+word+": "+wynik);
+return wynik;
+}
+// rhyme(transkrypcja);
+document.getElementById("log0").innerHTML="Dostępne rymy do "+transkrypcja;
+document.getElementById("log").innerText=rhyme(transkrypcja);
+}
+    
+    recognition.start();
+recognition.onend = function(){
+    recognition.start();
+}
+
+
+
+
+
+
+var wejscie = "koleżki";
+// document.getElementById("log0").innerHTML=word;
+//document.getElementById("log").innerHTML=rhyme("rapera");
+//document.getElementById("log").innerText=rhyme(wejscie);
+//document.getElementById("log0").innerHTML="Dostępne rymy do "+wejscie+":";
+//document.getElementById("log").innerHTML=word;
+</script>
+</body>
+</html>
